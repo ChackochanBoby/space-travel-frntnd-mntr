@@ -1,23 +1,27 @@
 @use "../utility" as util;
 
+.primary-header {
+    justify-content: space-between;
+    align-items: center;
 
+    @include util.breakpoints(medium) {
+        padding-top: 3rem;
+    }
+}
 
 .primary-nav {
     list-style: none;
     margin: 0;
     padding: 0;
     background-color: hsl(var(--dark), .95);
-    transition: transform 300ms ease-in-out;
 
-    @include util.breakpoints-d(small) {
-
-        transform: translateX(100%);
-    
-
-    &[data-visible="true"]{
-        transform: translateX(0);
+    @include util.breakpoints(small){
+        padding-inline: 2rem;
     }
-
+    @include util.breakpoints(medium){
+        padding-inline: clamp(3rem,6vw,7rem);
+    }
+    @include util.breakpoints-d(small) {
         --underline-space: 0.5;
         padding: min(20rem, 15vh) 2rem;
         position: fixed;
@@ -25,9 +29,16 @@
         z-index: 1000;
         flex-direction: column;
 
+        /*hiding and revealing navbar*/
+        transform: translateX(100%);
+        &[data-visible="true"] {
+            transform: translateX(0);
+            transition: transform 300ms ease-in-out;
+        }
         .active {
             border: 0;
         }
+        
     }
 }
 
@@ -41,13 +52,19 @@
         font-weight: 700;
     }
 }
-@supports (backdrop-filter: blur()){
-    .primary-nav{
-        background-color: hsl(var(--dark)/.2);
-        backdrop-filter: blur(2rem);
+
+@supports (backdrop-filter: blur()) {
+    .primary-nav {
+        background-color: hsl(var(--white)/.2);
+        backdrop-filter: blur(1rem);
     }
 }
 
-.logo{
-    margin: 1.5rem clamp(1.5rem,5vw,3rem);
+.logo {
+    margin: 1.5rem clamp(1.5rem, 5vw, 3rem);
+}
+@include util.breakpoints-min-and-max(small,medium){
+    .primary-nav a>span{
+        display: none;
+    }
 }
