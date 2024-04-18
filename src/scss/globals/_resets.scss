@@ -1,0 +1,72 @@
+@use "../utility" as util;
+
+/*basic css reset*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+picture {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p{
+    font-weight: 400;
+}
+
+body {
+    font-family: util.$ff-sans-normal;
+    font-size: var(--fs-300);
+    color: hsl(var(--light));
+    line-height: 1.5;
+    background-color: hsl(var(--dark));
+    min-height: 100vh;
+    max-width: 100%;
+    overflow:hidden;
+
+    display: grid;
+    grid-template-rows: min-content 1fr;
+}
+
+/*make images easier to work with*/
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/*make forms easier to work with*/
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+/*remove animations for people who've turned them off*/
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after{
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

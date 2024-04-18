@@ -1,0 +1,53 @@
+@use "../utility" as util;
+
+
+
+.primary-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: hsl(var(--dark), .95);
+    transition: transform 300ms ease-in-out;
+
+    @include util.breakpoints-d(small) {
+
+        transform: translateX(100%);
+    
+
+    &[data-visible="true"]{
+        transform: translateX(0);
+    }
+
+        --underline-space: 0.5;
+        padding: min(20rem, 15vh) 2rem;
+        position: fixed;
+        inset: 0 0 0 30%;
+        z-index: 1000;
+        flex-direction: column;
+
+        .active {
+            border: 0;
+        }
+    }
+}
+
+.primary-nav a {
+    text-decoration: none;
+    color: hsl(var(--light));
+
+    span {
+        color: hsl(var(--white));
+        margin-right: .5rem;
+        font-weight: 700;
+    }
+}
+@supports (backdrop-filter: blur()){
+    .primary-nav{
+        background-color: hsl(var(--dark)/.2);
+        backdrop-filter: blur(2rem);
+    }
+}
+
+.logo{
+    margin: 1.5rem clamp(1.5rem,5vw,3rem);
+}

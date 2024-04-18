@@ -1,0 +1,29 @@
+@use "../utility" as util;
+.mobile-nav-toggle{
+    display: none;
+    background-color: transparent;
+    background-image: url(../../../assets/shared/icon-hamburger.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 1.5rem;
+    border: none;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+    z-index: 2000;
+    cursor: pointer;
+
+    @include util.breakpoints-d(small){
+        display: block;
+    }
+
+    &[aria-expanded="true"]{
+        background-image: url(../../../assets/shared/icon-close.svg);
+    }
+    &:focus-visible{
+        outline: 5px solid white;
+        outline-offset: 5px;
+    }
+    
+}

@@ -1,0 +1,17 @@
+@use "../utility" as util;
+body{
+    background-size: cover;
+    background-position: bottom center;
+}
+.home{
+    background-image: url(../../../assets/home/background-home-mobile.jpg);
+    
+    @include util.breakpoints(small){
+        background-image: url(../../../assets/home/background-home-tablet.jpg);
+        background-position: center center;
+    }
+    @include util.breakpoints(medium){
+        background-image: url(../../../assets/home/background-home-desktop.jpg);
+        
+    }
+}

@@ -1,0 +1,19 @@
+.bg-dark{
+    background-color: hsl(var(--dark));
+}
+.bg-light{
+    background-color: hsl(var(--light));
+}
+.bg-white{
+    background-color: hsl(var(--white));
+}
+
+.text-dark{
+    color: hsl(var(--dark));
+}
+.text-light{
+    color: hsl(var(--light));
+}
+.text-white{
+    color: hsl(var(--white));
+}

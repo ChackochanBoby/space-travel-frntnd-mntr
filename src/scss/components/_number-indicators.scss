@@ -1,0 +1,16 @@
+.number-indicators > *{
+    display: grid;
+    place-content: center;
+    padding-inline: 2rem;
+    border: 0;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    &:hover,
+    &:focus {
+        border: .05em solid hsl(var(--white));
+    }
+}
+.number-indicators [aria-selected="true"]{
+    background-color: hsl(var(--white),1);
+    color: hsl(var(--dark),1);
+}

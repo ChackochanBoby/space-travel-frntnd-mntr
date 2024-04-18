@@ -1,0 +1,30 @@
+.large-btn{
+    font-size: 2rem;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    display: inline-grid;
+    place-content: center;
+    padding-inline: 2em;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    }
+
+.large-btn::after{
+    content: "";
+    position:absolute;
+    z-index: -1;
+    background-color: hsl(var(--white));
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: opacity 500ms linear, transform 750ms ease-in-out;
+}
+
+.large-btn:hover::after,
+.large-btn:hover::after {
+    opacity: .15;
+    transform: scale(1.5);
+
+}
