@@ -39,7 +39,7 @@ body {
     background-color: hsl(var(--dark));
     min-height: 100vh;
     max-width: 100%;
-    overflow:hidden;
+    overflow-x:hidden;
 
     display: grid;
     grid-template-rows: min-content 1fr;
