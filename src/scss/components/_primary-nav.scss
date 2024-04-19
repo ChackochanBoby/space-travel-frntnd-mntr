@@ -15,12 +15,14 @@
     padding: 0;
     background-color: hsl(var(--dark), .95);
 
-    @include util.breakpoints(small){
+    @include util.breakpoints(small) {
         padding-inline: 2rem;
     }
-    @include util.breakpoints(medium){
-        padding-inline: clamp(3rem,6vw,7rem);
+
+    @include util.breakpoints(medium) {
+        padding-inline: clamp(3rem, 6vw, 7rem);
     }
+
     @include util.breakpoints-d(small) {
         --underline-space: 0.5;
         padding: min(20rem, 15vh) 2rem;
@@ -31,15 +33,20 @@
 
         /*hiding and revealing navbar*/
         transform: translateX(100%);
+
         &[data-visible="true"] {
             transform: translateX(0);
             transition: transform 300ms ease-in-out;
+
         }
+
         .active {
             border: 0;
         }
-        
+
+
     }
+
 }
 
 .primary-nav a {
@@ -55,16 +62,43 @@
 
 @supports (backdrop-filter: blur()) {
     .primary-nav {
-        background-color: hsl(var(--white)/.2);
-        backdrop-filter: blur(1rem);
+        background-color: hsl(var(--dark),.15);
+        backdrop-filter: blur(2rem);
     }
 }
 
 .logo {
     margin: 1.5rem clamp(1.5rem, 5vw, 3rem);
+    order: -1;
+    @include util.breakpoints(medium){
+        min-width: 3rem;
+    }
 }
-@include util.breakpoints-min-and-max(small,medium){
-    .primary-nav a>span{
+
+
+@include util.breakpoints-min-and-max(small, medium) {
+    .primary-nav a>span {
         display: none;
     }
+}
+
+.primary-header::before {
+    display: none;
+    position: relative;
+    content: "";
+    width: 100%;
+    height: .8px;
+    border:none;
+    background-color: hsl(var(--white),.2);
+    order: 1;
+
+    @include util.breakpoints(medium) {
+        display: inline-block;
+    }
+}
+
+.primary-header nav {
+    order: 2;
+
+    @include util.breakpoints(medium) {}
 }
