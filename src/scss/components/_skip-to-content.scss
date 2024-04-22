@@ -1,0 +1,10 @@
+.skip-to-content{
+    display: block;
+    background-color: white;
+    color: black;
+    position: absolute;
+   transform: translateY(-100%);
+   &:focus-visible{
+    transform: translateY(0);
+   }
+}

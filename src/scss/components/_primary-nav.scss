@@ -62,7 +62,7 @@
 
 @supports (backdrop-filter: blur()) {
     .primary-nav {
-        background-color: hsl(var(--dark),.15);
+        background-color: hsl(var(--white) /.25);
         backdrop-filter: blur(2rem);
     }
 }
@@ -89,7 +89,9 @@
     width: 100%;
     height: .8px;
     border:none;
-    background-color: hsl(var(--white),.2);
+    margin-right: -3rem;
+    z-index: 1;
+    background-color: hsl(var(--white),.25);
     order: 1;
 
     @include util.breakpoints(medium) {
@@ -100,5 +102,4 @@
 .primary-header nav {
     order: 2;
 
-    @include util.breakpoints(medium) {}
 }
